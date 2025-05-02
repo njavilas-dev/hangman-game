@@ -74,7 +74,7 @@ public class App {
         }
 
         if (isGuessed) {
-            System.out.println("Congratulations!!... The word secret is " + word);
+            System.out.println("\nCongratulations!!... The word secret is " + word);
         }
 
         if (!isGuessed) {
