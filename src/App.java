@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class App {
@@ -15,7 +14,7 @@ public class App {
         int attempts = 0;
         int maxAttempts = 3;
 
-        List<String> letters = new ArrayList<>();
+        HashSet<String> letters = new HashSet<>();
 
         System.out.print("Secret word " + word.length() + " letters");
 
@@ -27,15 +26,14 @@ public class App {
 
             String raw_letter = scanner.nextLine();
 
-            if (raw_letter.length() == 0) {
+            if (input.length() > 0 || !Character.isLetter(input.charAt(0))) {
+                System.out.println("Please enter a single valid letter");
                 continue;
             }
 
             char letter = raw_letter.charAt(0);
 
-            boolean match = word.contains(String.valueOf(letter));
-
-            if (!match) {
+            if (!word.contains(String.valueOf(letter))) {
                 attempts++;
 
                 if (attempts == maxAttempts) {
